@@ -3,16 +3,16 @@ import { Card } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const CourseCard = ({ course }) => {
+const CourseCardHome = ({ course }) => {
   return (
-    <div className=" col-lg-4 col-md-6 col-12">
+    <div className=" col-lg-4 col-md-6 col-12 ">
       <Card className="m-2 ">
-        <Card.Img
+        {/* <Card.Img
           className="card-img-top img-fluid bg-light"
-          variant="top"
+          variant="left"
           style={{ height: '10rem'}}
           src={course.thumbnail_url}
-        />
+        /> */}
         <Card.Body>
           <Card.Title>{course.name}</Card.Title>
           <Link to={"/course/" + course._id} className="btn btn-primary">
@@ -24,4 +24,4 @@ const CourseCard = ({ course }) => {
   );
 };
 
-export default CourseCard;
+export default CourseCardHome;

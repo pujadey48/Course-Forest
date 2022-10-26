@@ -7,6 +7,7 @@ import {
   Image,
   Nav,
   Navbar,
+  Form,
 } from "react-bootstrap";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -23,11 +24,11 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const { providerLogin } = useContext(AuthContext);
 
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
-    .then( ()=>{})
-    .catch( error => console.error(error))
-  }
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -85,14 +86,9 @@ const Header = () => {
               <Nav.Link href="/blog">Blog</Nav.Link>
             </Nav.Item>
 
-            {/* {user && (
-              <Nav.Item>
-                <Nav.Link eventKey="link-3">{user?.displayName}</Nav.Link>
-              </Nav.Item>
-            )} */}
-            {/* {user && (
-              <Nav.Item>
-                <Nav.Link eventKey="link-3">
+            {user && (
+              <Dropdown>
+                <Dropdown.Toggle variant="link" id="dropdown-basic">
                   {user?.photoURL ? (
                     <Image
                       style={{ height: "30px" }}
@@ -102,26 +98,13 @@ const Header = () => {
                   ) : (
                     <FaUser></FaUser>
                   )}
-                </Nav.Link>
-              </Nav.Item>
-            )} */}
-            {user && (
-                <Dropdown>
-                <Dropdown.Toggle variant="link" id="dropdown-basic">
-                {user?.photoURL ? (
-                    <Image
-                      style={{ height: "30px" }}
-                      roundedCircle
-                      src={user?.photoURL}
-                    ></Image>
-                  ) : (
-                    <FaUser></FaUser>
-                  )}
                 </Dropdown.Toggle>
-          
+
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/">{user?.displayName}</Dropdown.Item>
-                  <Dropdown.Item onClick={handleLogOut}>Log out  <FaSignOutAlt></FaSignOutAlt></Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogOut}>
+                    Log out <FaSignOutAlt></FaSignOutAlt>
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             )}
@@ -144,6 +127,13 @@ const Header = () => {
                 </Dropdown.Item>
               </DropdownButton>
             )}
+            <Form className="mt-2">
+              <Form.Check
+                type="switch"
+                id="dark-mode-switch"
+                label="Dark mode"
+              />
+            </Form>
           </Nav>
         </Container>
       </Navbar>

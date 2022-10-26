@@ -16,7 +16,8 @@ import Register from "../../Pages/Login/Register/Register";
         children: [
             {
                 path: '/',
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader: () => fetch(`https://assignment-10-server-pujadey48.vercel.app/allCourses`)
             },
             {
                 path: '/course',

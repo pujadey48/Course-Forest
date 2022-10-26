@@ -1,7 +1,8 @@
 import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import LeftSideNav from "../Courses/LeftSideNav/LeftSideNav";
+import JsPDF from "jspdf";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -9,6 +10,13 @@ const CourseDetails = () => {
   function createMarkup(htmlString) {
     return { __html: htmlString };
   }
+
+  const generatePDF = () => {
+    const report = new JsPDF("portrait", "pt", "a4");
+    report.html(document.querySelector(".details")).then(() => {
+      report.save("report.pdf");
+    });
+  };
 
   return (
     <Container className="mb-5">
@@ -22,7 +30,10 @@ const CourseDetails = () => {
           </Col>
         )}
         {course.name && (
-          <Col lg="8">
+          <Col lg="8" className="details">
+            <button onClick={generatePDF} type="button">
+              Generate PDF
+            </button>
             <h2>{course.name}</h2>
             <img src={course.image_url} class="img-fluid" alt="..."></img>
             <p className="text-muted mb-1 mt-2">
