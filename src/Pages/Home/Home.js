@@ -11,19 +11,23 @@ const Home = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={image1} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3 className="text-danger fw-bold fs-3">Unlock the power of your people</h3>
+            <p className="text-primary">CourseForest Business is trusted by 12.5K+ companies around the world.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={image2} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3 className="text-danger fw-bold fs-3">Unlock the power of your people</h3>
+            <p className="text-primary">CourseForest Business is trusted by 12.5K+ companies around the world.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <div>
+        <h2 className=" fs-1">A broad selection of courses</h2>
+        <p className="text-dark">Choose from 204,000 online video courses with new additions published every month</p>
+      </div>
     </Container>
   );
 };

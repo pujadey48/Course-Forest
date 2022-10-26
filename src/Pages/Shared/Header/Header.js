@@ -20,8 +20,14 @@ import {
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const { providerLogin } = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut()
+    .then( ()=>{})
+    .catch( error => console.error(error))
+  }
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -115,7 +121,7 @@ const Header = () => {
           
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/">{user?.displayName}</Dropdown.Item>
-                  <Dropdown.Item href="#/">Log out  <FaSignOutAlt></FaSignOutAlt></Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogOut}>Log out  <FaSignOutAlt></FaSignOutAlt></Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             )}
@@ -127,7 +133,7 @@ const Header = () => {
                 variant={"login"}
                 title={"Login"}
               >
-                <Dropdown.Item eventKey="1">
+                <Dropdown.Item eventKey="1" href="/login">
                   <FaEnvelope></FaEnvelope> Login with Email
                 </Dropdown.Item>
                 <Dropdown.Item eventKey="2" onClick={handleGoogleSignIn}>
