@@ -21,11 +21,11 @@ import Register from "../../Pages/Login/Register/Register";
             {
                 path: '/course',
                 element: <CourseContainer></CourseContainer>,
-                loader: () => fetch(`http://localhost:5000/allCourses`)
+                loader: () => fetch(`https://assignment-10-server-pujadey48.vercel.app/allCourses`)
             },
             {
                 path: '/course/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-pujadey48.vercel.app/courses/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
             {
