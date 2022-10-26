@@ -7,7 +7,6 @@ import image2 from "../../images/image2.png";
 const Home = () => {
   return (
     <Container>
-      <h2>this is home</h2>
       <Carousel>
         <Carousel.Item>
           <img className="d-block w-100" src={image1} alt="First slide" />

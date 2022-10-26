@@ -9,20 +9,18 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import {
   FaGoogle,
   FaGithub,
   FaUser,
-  FaMailchimp,
   FaEnvelope,
   FaSignOutAlt,
 } from "react-icons/fa";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const Header = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { providerLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
@@ -35,7 +33,6 @@ const Header = () => {
         const user = result.user;
         if (user) {
           console.log(user);
-          setUser(user);
         }
       })
       .catch((error) => console.error(error));
@@ -47,7 +44,6 @@ const Header = () => {
         const user = result.user;
         if (user) {
           console.log(user);
-          setUser(user);
         }
       })
       .catch((error) => console.error(error));
@@ -83,12 +79,12 @@ const Header = () => {
               <Nav.Link href="/blog">Blog</Nav.Link>
             </Nav.Item>
 
-            {user && (
+            {/* {user && (
               <Nav.Item>
                 <Nav.Link eventKey="link-3">{user?.displayName}</Nav.Link>
               </Nav.Item>
-            )}
-            {user && (
+            )} */}
+            {/* {user && (
               <Nav.Item>
                 <Nav.Link eventKey="link-3">
                   {user?.photoURL ? (
@@ -102,6 +98,26 @@ const Header = () => {
                   )}
                 </Nav.Link>
               </Nav.Item>
+            )} */}
+            {user && (
+                <Dropdown>
+                <Dropdown.Toggle variant="link" id="dropdown-basic">
+                {user?.photoURL ? (
+                    <Image
+                      style={{ height: "30px" }}
+                      roundedCircle
+                      src={user?.photoURL}
+                    ></Image>
+                  ) : (
+                    <FaUser></FaUser>
+                  )}
+                </Dropdown.Toggle>
+          
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/">{user?.displayName}</Dropdown.Item>
+                  <Dropdown.Item href="#/">Log out  <FaSignOutAlt></FaSignOutAlt></Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             )}
             {!user && (
               <DropdownButton

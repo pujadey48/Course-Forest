@@ -7,9 +7,8 @@ const CourseDetails = () => {
   const course = useLoaderData();
 
   function createMarkup(htmlString) {
-    return {__html: htmlString};
+    return { __html: htmlString };
   }
-
 
   return (
     <Container className="mb-5">
@@ -17,15 +16,26 @@ const CourseDetails = () => {
         <Col lg="4">
           <LeftSideNav></LeftSideNav>
         </Col>
-        <Col lg="8">
+        {course.err_msg && (
+          <Col lg="8">
+            <h2>{course?.err_msg}</h2>
+          </Col>
+        )}
+        {course.name && (
+          <Col lg="8">
             <h2>{course.name}</h2>
             <img src={course.image_url} class="img-fluid" alt="..."></img>
-            <p className="text-muted mb-1 mt-2">Rating:{course.rating.number} Badge:{course.rating.badge}</p>
+            <p className="text-muted mb-1 mt-2">
+              Rating:{course.rating.number} Badge:{course.rating.badge}
+            </p>
             <p className="fw-bold fs-3">Price: {course.price}</p>
             <div dangerouslySetInnerHTML={createMarkup(course.details)} />
             {/* <p>{course.details}</p> */}
-            <button type="button" class="btn btn-primary">CheckOut</button>
-        </Col>
+            <button type="button" class="btn btn-primary">
+              CheckOut
+            </button>
+          </Col>
+        )}
       </Row>
     </Container>
   );
