@@ -120,6 +120,7 @@ const Login = () => {
           <FaGithub></FaGithub>
         </Link>
       </div>
+      <p className="m-2">Do not have an account? <span><Link to={"/register"}>Please Register.</Link></span> </p>
     </Container>
   );
 };
