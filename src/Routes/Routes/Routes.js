@@ -2,11 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Page404 from "../../Page404";
 import Blogs from "../../Pages/Blogs/Blogs";
+import FAQ from "../../Pages/Blogs/FAQ";
+import CheckOut from "../../Pages/CheckOut/CheckOut";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CourseContainer from "../../Pages/Courses/CourseContainer/CourseContainer";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
  export const  routes = createBrowserRouter([
@@ -34,12 +37,20 @@ import Register from "../../Pages/Login/Register/Register";
                 element:<Blogs></Blogs>
             },
             {
+                path: '/faq',
+                element:<FAQ></FAQ>
+            },
+            {
                 path:'/login',
                 element: <Login></Login>
             },
             {
                 path:'/register',
                 element: <Register></Register>
+            },
+            {
+                path:'/checkOut',
+                element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             },
             {
               path: "*",

@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Accordion from 'react-bootstrap/Accordion';
 
-const Blogs = () => {
+const FAQ = () => {
   return (
     <Container>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
@@ -37,4 +37,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default FAQ;

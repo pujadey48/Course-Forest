@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import LeftSideNav from "../Courses/LeftSideNav/LeftSideNav";
 import JsPDF from "jspdf";
+import { FaArrowRight } from "react-icons/fa";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -42,9 +43,12 @@ const CourseDetails = () => {
             <p className="fw-bold fs-3">Price: {course.price}</p>
             <div dangerouslySetInnerHTML={createMarkup(course.details)} />
             {/* <p>{course.details}</p> */}
-            <button type="button" class="btn btn-primary">
+            {/* <button type="button" class="btn btn-primary">
               CheckOut
-            </button>
+            </button> */}
+            <Link to={"/checkOut"} className="btn btn-primary">
+            CheckOut <FaArrowRight></FaArrowRight>
+          </Link>
           </Col>
         )}
       </Row>

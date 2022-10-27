@@ -19,15 +19,29 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const { providerLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
 
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.error(error));
+  };
+
+  const loginDone = (user) => {
+    if (user) {
+      console.log(user);
+    }
+    const from = location.state?.from?.pathname || "/";
+    if (from) {
+      navigate(from, { replace: true });
+    }
   };
 
   const googleProvider = new GoogleAuthProvider();
@@ -37,10 +51,7 @@ const Header = () => {
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
-        const user = result.user;
-        if (user) {
-          console.log(user);
-        }
+        loginDone(result.user);
       })
       .catch((error) => console.error(error));
   };
@@ -48,10 +59,7 @@ const Header = () => {
   const handleGithubSignIn = () => {
     providerLogin(githubProvider)
       .then((result) => {
-        const user = result.user;
-        if (user) {
-          console.log(user);
-        }
+        loginDone(result.user);
       })
       .catch((error) => console.error(error));
   };
@@ -76,14 +84,14 @@ const Header = () => {
             CourseForest
           </Navbar.Brand>
           <Nav className="justify-content-end">
-          <Nav.Item>
+            <Nav.Item>
               <Nav.Link href="/">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/course">Courses</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/blog">FAQ</Nav.Link>
+              <Nav.Link href="/faq">FAQ</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/blog">Blog</Nav.Link>
