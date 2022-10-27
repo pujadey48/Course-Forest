@@ -4,9 +4,12 @@ import { Link, useLoaderData } from "react-router-dom";
 import LeftSideNav from "../Courses/LeftSideNav/LeftSideNav";
 import JsPDF from "jspdf";
 import { FaArrowRight } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 const CourseDetails = () => {
   const course = useLoaderData();
+  let { id } = useParams();
+  
 
   function createMarkup(htmlString) {
     return { __html: htmlString };
@@ -36,7 +39,7 @@ const CourseDetails = () => {
               Generate PDF
             </button>
             <h2>{course.name}</h2>
-            <img src={course.image_url} class="img-fluid" alt="..."></img>
+            <img src={course.image_url} className="img-fluid" alt="..."></img>
             <p className="text-muted mb-1 mt-2">
               Rating:{course.rating.number} Badge:{course.rating.badge}
             </p>
@@ -46,8 +49,8 @@ const CourseDetails = () => {
             {/* <button type="button" class="btn btn-primary">
               CheckOut
             </button> */}
-            <Link to={"/checkOut"} className="btn btn-primary">
-            CheckOut <FaArrowRight></FaArrowRight>
+            <Link to={"/checkOut/"+id} className="btn btn-primary">
+            Checkout premium access <FaArrowRight></FaArrowRight>
           </Link>
           </Col>
         )}

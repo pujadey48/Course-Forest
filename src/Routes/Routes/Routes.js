@@ -49,7 +49,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
                 element: <Register></Register>
             },
             {
-                path:'/checkOut',
+                path:'/checkOut/:id',
+                loader: ({ params }) => fetch(`https://assignment-10-server-pujadey48.vercel.app/courses/${params.id}`),
                 element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             },
             {

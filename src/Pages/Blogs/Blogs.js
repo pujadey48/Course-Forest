@@ -16,7 +16,7 @@ const Blogs = () => {
       <Accordion.Item eventKey="1">
         <Accordion.Header>Why are you using firebase? What other options do you have to implement authentication?</Accordion.Header>
         <Accordion.Body>
-        Firebase helps us develop high-quality apps, grow your user base, and earn more money. Each feature works independently, and they work even better together.
+        <p>Firebase helps us develop high-quality apps, grow your user base, and earn more money. Each feature works independently, and they work even better together. Firebase has different features including Auth, Database, Config, Push Messaging etc.</p><p>Firebase Auth is one of the most popular user authentication service. Beside this there are some other providers that support Authentication like Huawei Auth, Facebook, Github etc</p>
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="2">
