@@ -3,7 +3,7 @@
 ## Links: 
 1. Client project Git link: [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-pujadey48](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-pujadey48)
 2. Server project Git link: [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-pujadey48](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-pujadey48)
-3. Live client app link:
+3. Live client app link: [https://assignment-10-client-a316b.web.app](https://assignment-10-client-a316b.web.app/)
 4. Live Server app link: [https://assignment-10-server-pujadey48.vercel.app](https://assignment-10-server-pujadey48.vercel.app)
 
 ## Description
