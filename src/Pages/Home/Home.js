@@ -1,10 +1,9 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import { useLoaderData } from "react-router-dom";
 import image1 from "../../images/image1.jpeg";
 import image2 from "../../images/image2.png";
-import CourseCard from "../CourseCard/CourseCard";
 import CourseCardHome from "../CourseCard/CourseCardHome";
 
 const Home = () => {
