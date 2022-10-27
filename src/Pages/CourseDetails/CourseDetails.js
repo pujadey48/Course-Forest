@@ -12,9 +12,9 @@ const CourseDetails = () => {
   }
 
   const generatePDF = () => {
-    const report = new JsPDF("portrait", "pt", "a4");
-    report.html(document.querySelector(".details")).then(() => {
-      report.save("report.pdf");
+    const details = new JsPDF("portrait", "pt", "a4");
+    details.html(document.querySelector(".details")).then(() => {
+        details.save("details.pdf");
     });
   };
 

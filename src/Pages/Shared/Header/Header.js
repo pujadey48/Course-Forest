@@ -76,6 +76,9 @@ const Header = () => {
             CourseForest
           </Navbar.Brand>
           <Nav className="justify-content-end">
+          <Nav.Item>
+              <Nav.Link href="/">Home</Nav.Link>
+            </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/course">Courses</Nav.Link>
             </Nav.Item>
@@ -124,6 +127,9 @@ const Header = () => {
                 </Dropdown.Item>
                 <Dropdown.Item eventKey="3" onClick={handleGithubSignIn}>
                   <FaGithub></FaGithub> Login with Github
+                </Dropdown.Item>
+                <Dropdown.Item eventKey="4" href="/register">
+                  <FaEnvelope></FaEnvelope> Register Now
                 </Dropdown.Item>
               </DropdownButton>
             )}
